@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>voice test</title>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.0.0/annyang.min.js"></script>
+    <script type="text/javascript">
+        if (annyang) {
+            var commands = {
+                'hello': function () {
+                    alert("Shanki");
+                },
+                'show': function () {
+                    alert("show");
+                }
+            };
+
+            annyang.addCommands(commands);
+        }
+
+        annyang.start();
+        //setInterval(function () { annyang.start(); }, 1000);
+    </script>
+</head>
+<body>
+    <h4>voice test</h4>
+</body>
+</html>

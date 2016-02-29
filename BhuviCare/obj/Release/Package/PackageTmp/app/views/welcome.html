@@ -1,0 +1,108 @@
+﻿<section>
+    <div class="container-fluid wide">
+    </div>
+    <br />
+    <div class="bs-example bs-example-tabs" data-example-id="togglable-tabs" style="z-index: 2;">
+        <ul id="myTabs" class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active"><a href="#home" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">மாநில செய்திகள்</a></li>
+            <li role="presentation" class=""><a href="#profile" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile" aria-expanded="false">தேசிய செய்திகள்</a></li>
+            <li role="presentation" class=""><a href="#ks" role="tab" id="ks-tab" data-toggle="tab" aria-controls="ks" aria-expanded="false">கலவை செய்திகள்</a></li>
+            <!--<li role="presentation" class="dropdown">
+                <a href="#" id="myTabDrop1" class="dropdown-toggle" data-toggle="dropdown" aria-controls="myTabDrop1-contents" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                <ul class="dropdown-menu" aria-labelledby="myTabDrop1" id="myTabDrop1-contents">
+                    <li><a href="#dropdown1" role="tab" id="dropdown1-tab" data-toggle="tab" aria-controls="dropdown1">@fat</a></li>
+                    <li><a href="#dropdown2" role="tab" id="dropdown2-tab" data-toggle="tab" aria-controls="dropdown2">@mdo</a></li>
+                </ul>
+            </li>-->
+        </ul>
+        <div id="myTabContent" class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="home" aria-labelledby="home-tab">
+                <div data-bind="foreach: msdata">
+                    <div class="row" data-bind="foreach: $data" style="margin-left:0px; margin-right:0px;">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
+                            <div class="card">
+                                <div class="card-image waves-effect waves-block waves-light">
+                                    <img data-bind="attr: { src: PicUrl}" class="activator" height="300">
+                                </div>
+                                <div class="card-content">
+                                    <span class="card-title activator grey-text text-darken-4">
+                                        <h6 data-bind="text: NewsHeader"></h6>
+                                        <i class="material-icons right"></i>
+                                    </span>
+                                    <p>
+                                        <a href="#">Read More</a>
+                                    </p>
+                                </div>
+                                <div class="card-reveal">
+                                    <span class="card-title grey-text text-darken-4"><i class="fa fa-close right"></i></span>
+                                    <h5 data-bind="text: NewsHeader"></h5>
+                                    <p data-bind="text: NewsContent"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="profile" aria-labelledby="profile-tab">
+                <div data-bind="foreach: dsData">
+                    <div class="row" data-bind="foreach: $data" style="margin-left:0px; margin-right:0px;">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
+                            <div class="card">
+                                <div class="card-image waves-effect waves-block waves-light">
+                                    <img data-bind="attr: { src: PicUrl}" class="activator" height="300">
+                                </div>
+                                <div class="card-content">
+                                    <span class="card-title activator grey-text text-darken-4">
+                                        <h6 data-bind="text: NewsHeader"></h6>
+                                        <i class="material-icons right"></i>
+                                    </span>
+                                    <p>
+                                        <a href="#">Read More</a>
+                                    </p>
+                                </div>
+                                <div class="card-reveal">
+                                    <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span>
+                                    <h5 data-bind="text: NewsHeader"></h5>
+                                    <p data-bind="text: NewsContent"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="ks" aria-labelledby="ks-tab">
+                <div data-bind="foreach: ksData">
+                    <div class="row" data-bind="foreach: $data" style="margin-left:0px; margin-right:0px;">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
+                            <div class="card">
+                                <div class="card-image waves-effect waves-block waves-light">
+                                    <img data-bind="attr: { src: PicUrl}" class="activator" height="300">
+                                </div>
+                                <div class="card-content">
+                                    <span class="card-title activator grey-text text-darken-4">
+                                        <h6 data-bind="text: NewsHeader"></h6>
+                                        <i class="material-icons right"></i>
+                                    </span>
+                                    <p>
+                                        <a href="#">Read More</a>
+                                    </p>
+                                </div>
+                                <div class="card-reveal">
+                                    <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span>
+                                    <h5 data-bind="text: NewsHeader"></h5>
+                                    <p data-bind="text: NewsContent"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--<div role="tabpanel" class="tab-pane fade" id="dropdown1" aria-labelledby="dropdown1-tab">
+                <p>Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone skateboard locavore carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony. Leggings gentrify squid 8-bit cred pitchfork. Williamsburg banh mi whatever gluten-free, carles pitchfork biodiesel fixie etsy retro mlkshk vice blog. Scenester cred you probably haven't heard of them, vinyl craft beer blog stumptown. Pitchfork sustainable tofu synth chambray yr.</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="dropdown2" aria-labelledby="dropdown2-tab">
+                <p>Trust fund seitan letterpress, keytar raw denim keffiyeh etsy art party before they sold out master cleanse gluten-free squid scenester freegan cosby sweater. Fanny pack portland seitan DIY, art party locavore wolf cliche high life echo park Austin. Cred vinyl keffiyeh DIY salvia PBR, banh mi before they sold out farm-to-table VHS viral locavore cosby sweater. Lomo wolf viral, mustache readymade thundercats keffiyeh craft beer marfa ethical. Wolf salvia freegan, sartorial keffiyeh echo park vegan.</p>
+            </div>-->
+        </div>
+    </div>
+</section>
