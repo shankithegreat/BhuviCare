@@ -15,6 +15,7 @@ define(['plugins/router', 'durandal/app'], function (router, app) {
             router.map([
                 { route: 'welcome', title: 'Welcome', moduleId: 'viewmodels/welcome', nav: true },
                 { route: 'company', title: 'About', moduleId: 'viewmodels/company', nav: true },
+                { route: 'lineofbusiness', title: 'LineOfBusiness', moduleId: 'viewmodels/lineofbusiness', nav: true },
                 { route: '', title: 'Welcome', moduleId: 'viewmodels/welcome', nav: true },
                 { route: 'contentupdate', moduleId: 'viewmodels/contentupdate', nav: true }
             ]).buildNavigationModel();
@@ -26,14 +27,14 @@ define(['plugins/router', 'durandal/app'], function (router, app) {
             sessionStorage.clear();
             if (annyang) {
                 var commands = {
-                    'photo': function () {
-                        router.navigate("gallery");
+                    'company': function () {
+                        router.navigate("company");
                     },
                     'home': function () {
                         router.navigate("welcome");
                     },
-                    'video': function () {
-                        router.navigate("videos");
+                    'business': function () {
+                        router.navigate("lineofbusiness");
                     }
                 };
 

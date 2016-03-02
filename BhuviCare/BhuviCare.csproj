@@ -105,6 +105,7 @@
   <ItemGroup>
     <Content Include="app\main.js" />
     <Content Include="app\services\home.js" />
+    <Content Include="app\viewmodels\lineofbusiness.js" />
     <Content Include="app\viewmodels\company.js" />
     <Content Include="app\viewmodels\contentupdate.js" />
     <Content Include="app\viewmodels\footer.js" />
@@ -113,6 +114,7 @@
     <Content Include="app\viewmodels\shell.js" />
     <Content Include="app\viewmodels\welcome.js" />
     <Content Include="app\views\footer.html" />
+    <Content Include="app\views\lineofbusiness.html" />
     <Content Include="app\views\lob.html" />
     <Content Include="app\views\shell.html" />
     <Content Include="app\views\welcome.html" />
@@ -129,7 +131,11 @@
     <Content Include="images\bg-4.jpg" />
     <Content Include="images\bg-5.jpg" />
     <Content Include="images\bg-6.jpg" />
+    <Content Include="images\cardamont.png" />
+    <Content Include="images\eartht.png" />
     <Content Include="images\logo.png" />
+    <Content Include="images\ricet.png" />
+    <Content Include="images\treet.png" />
     <Content Include="index.html" />
     <Content Include="lib\annyang\annyang.min.js" />
     <Content Include="lib\bootstrap\css\bootstrap.min.css" />
