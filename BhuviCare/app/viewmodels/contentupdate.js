@@ -1,6 +1,16 @@
-﻿define(['plugins/router', '../services/home', 'knockout', 'jquery', 'summernote', 'responsiveTabs'],
+﻿'use strict';
+define(['plugins/router', '../services/home', 'knockout', 'jquery', 'summernote', 'responsiveTabs'],
     function (router, home, ko, jquery, summernote, responsiveTabs) {
         var vm = {
+            userInfo: {
+                UserName: ko.observable(),
+                Password: ko.observable()
+            },
+            lob: {
+                picUrl: ko.observable(),
+                header: ko.observable(),
+                link: ko.observable(),
+            },
             activate: function () {
 
             },
@@ -11,7 +21,7 @@
                     rotate: false,
                     startCollapsed: 'accordion',
                     collapsible: 'accordion',
-                    setHash: true,
+                    setHash: false,
                     //disabled: [3, 4],
                     activate: function (e, tab) {
                     },
@@ -19,15 +29,25 @@
                     }
                 });
 
-                $('#widgetContent1').summernote({
-                    height: 300,                 // set editor height
-                    minHeight: null,             // set minimum height of editor
-                    maxHeight: null,             // set maximum height of editor
-                    focus: true,
-                    oninit: function () {
+
+            },
+            updateLob: function () {
+                var self = this;
+                var lobInput = {
+                    UserInfo: self.userInfo,
+                    PicUrl: self.lob.picUrl(),
+                    Header: self.lob.header(),
+                    Link: self.lob.link()
+                };
+                home.updateLob(lobInput).pipe(function (data) {
+                    if (data == true || data == "OK" || data == "True") {
+                        Materialize.toast('Saved Successfully!', 4000);
+                    }
+                    else {
+                        Materialize.toast('Saving Failed!', 4000);
                     }
                 });
-            },
+            }
         };
 
         return vm;

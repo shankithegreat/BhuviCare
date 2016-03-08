@@ -2,6 +2,7 @@
     function (router, home, ko, jquery, pace, responsiveSlides) {
         pace.start();
         var vm = {
+            lobData: ko.observableArray([]),
             activate: function () {
             },
             attached: function () {
@@ -11,6 +12,10 @@
                     pagination: true,
                     nav: true,
                     fade: 500
+                });
+
+                home.getLob().pipe(function (data) {
+                    self.lobData(data);
                 });
             }
         };

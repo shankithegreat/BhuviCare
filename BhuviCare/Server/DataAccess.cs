@@ -1,4 +1,4 @@
-﻿using SouthCPIMWeb.Models;
+﻿using BhuviCare.Models;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SouthCPIMWeb
+namespace BhuviCare
 {
     public class DataAccess
     {
@@ -22,105 +22,26 @@ namespace SouthCPIMWeb
 
         private string GetConnString()
         {
-            return @"Data Source=" + AppDomain.CurrentDomain.BaseDirectory + @"\App_Data\SouthCPIM.sqlite;Version=3;";
+            return @"Data Source=" + AppDomain.CurrentDomain.BaseDirectory + @"\App_Data\BhuviCare.sqlite;Version=3;";
         }
 
-        public DataSet GetMS()
+        public DataSet LineOfBusiness()
         {
-            string query = "select newsid,newsheader,newscontent,picurl,priority, cast(createdtime as varchar) as createddate from tblMS order by newsid desc  LIMIT " + Helper.GetAppKeyValue("newslimit") + ";";
-            return ExecuteDataSet(query, "tblMS");
+            string query = "select id,PicUrl,Header,ButtonLink from tblLineOfBusiness";
+            return ExecuteDataSet(query, "tblLineOfBusiness");
         }
 
-        public DataSet GetDS()
+        public void UpdateLob(LineOfBusiness lineOfBusiness)
         {
-            string query = "select newsid,newsheader,newscontent,picurl,priority, cast(createdtime as varchar) as createddate from tblDS order by newsid desc  LIMIT " + Helper.GetAppKeyValue("newslimit") + ";";
-            return ExecuteDataSet(query, "tblDS");
-        }
-
-        public DataSet GetKS()
-        {
-            string query = "select newsid,newsheader,newscontent,picurl,priority, cast(createdtime as varchar) as createddate from tblKS order by newsid desc  LIMIT " + Helper.GetAppKeyValue("newslimit") + ";";
-            return ExecuteDataSet(query, "tblKS");
-        }
-
-        public void InsertNews(MSNews news, string tableName)
-        {
-            DateTime indianTime = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, INDIAN_ZONE);
-            int newsId = GetMaxId(tableName, "newsid") + 1;
-            string query = "INSERT INTO [" + tableName + "]([newsid],[createdtime],[newsheader],[newscontent],[picurl],[priority])";
-            query += "VALUES(" + newsId + ",'" + indianTime.ToString("yyyy-MM-dd HH:mm") + "','" + news.NewsHeader + "','" + news.NewsContent + "','" + news.PicUrl + "','" + news.Priority + "');";
+            int maxId = GetMaxId("tblLineOfBusiness", "Id") + 1;
+            string query = "INSERT INTO [tblLineOfBusiness]([Id],[PicUrl],[Header],[ButtonLink])VALUES(" + maxId + ",'" + lineOfBusiness.PicUrl + "','" + lineOfBusiness.Header + "','" + lineOfBusiness.Link + "');";
             ExecuteNonQuery(query);
-        }
-
-        public void InsertPhotos(PhotoContent photoContent)
-        {
-            if (photoContent.IsInsert.Equals("on", StringComparison.OrdinalIgnoreCase))
-            {
-                int maxId = GetMaxId("tblPictureCategory", "Id") + 1;
-                string query = "INSERT INTO [tblPictureCategory]([Id],[CategoryHeader],[thumbnailUrl])VALUES(" + maxId + ",'" + photoContent.CategoryHeader + "','" + photoContent.ThumbnailUrl + "');";
-                ExecuteNonQuery(query);
-
-                foreach (var item in photoContent.PicUrl)
-                {
-                    int photoMaxId = GetMaxId("tblPhotos", "Id") + 1;
-                    query = "INSERT INTO [tblPhotos]([Id],[PicCatId],[ThumbnailUrl],[PhotoUrl])VALUES(" + photoMaxId + "," + maxId + ",'" + item.ThumbnailUrl + "','" + item.PictureUrl + "');";
-                    ExecuteNonQuery(query);
-                }
-            }
-            else if (photoContent.IsUpdate.Equals("on", StringComparison.OrdinalIgnoreCase))
-            {
-
-            }
-            else if (photoContent.IsDelete.Equals("on", StringComparison.OrdinalIgnoreCase))
-            {
-                //dataAccess.DeleteNews();
-            }
-        }
-
-        public void UpdateVideos(VideoContent videoContent)
-        {
-            DateTime indianTime = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, INDIAN_ZONE);
-            int maxId = GetMaxId("tblVideos", "Id") + 1;
-            string query = "INSERT INTO [tblVideos]([Id],[VideoDesc],[VideoUrl],[CreatedDate])VALUES(" + maxId + ",'" + videoContent.VideoDesc + "','" + videoContent.VideoUrl + "','" + indianTime.ToString("yyyy-MM-dd HH:mm") + "');";
-            ExecuteNonQuery(query);
-        }
-
-        public void UpdateOthers(OtherContents otherContents, string tableName)
-        {
-            DateTime indianTime = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, INDIAN_ZONE);
-            int maxId = GetMaxId(tableName, "Id") + 1;
-            string query = "INSERT INTO [" + tableName + "]([Id],[Header],[HtmlContent],[createdtime])VALUES(" + maxId + ",'" + otherContents.Header + "','" + otherContents.HtmlContent + "','" + indianTime.ToString("yyyy-MM-dd HH:mm") + "');";
-            ExecuteNonQuery(query);
-        }
-
-        public DataSet LoadOthers(string tableName)
-        {
-            string query = "SELECT [Id],[Header],[createdtime] FROM [" + tableName + "];";
-            return ExecuteDataSet(query, tableName);
-        }
-
-        public object LoadOthersById(string tableName, string id)
-        {
-            string query = "SELECT HtmlContent FROM " + tableName + " WHERE Id = " + id + ";";
-            return ExecuteScalar(query);
         }
 
         private int GetMaxId(string tableName, string colName)
         {
             string query = "SELECT MAX(" + colName + ") FROM [" + tableName + "];";
             return Helper.ConvertToInt(ExecuteScalar(query));
-        }
-
-        public DataSet GetGalleryDetails()
-        {
-            string query = "select * from tblPictureCategory;select * from tblPhotos";
-            return ExecuteDataSet(query, "tblGallery");
-        }
-
-        public DataSet GetVideoDetails()
-        {
-            string query = "select * from tblVideos order by CreatedDate desc";
-            return ExecuteDataSet(query, "tblVideos");
         }
 
         private DataSet ExecuteDataSet(string query, string tableName)

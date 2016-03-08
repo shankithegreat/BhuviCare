@@ -69,16 +69,15 @@
     </div>
     <div class="container-fluid">
         <br />
-        <div class="row">
+        <div class="row" data-bind="foreach: lobData">
             <div class="col-md-3 col-sm-6 col-xs-12 cust-col-md-3">
                 <div class="serv-block border-blue">
                     <img src="http://www.bhuvicare.com/gallery/events/234136721871386.jpg" width="200" alt="">
-                    <h6>Business Line 1</h6>
-                    <p class="font-13">HERBAL INSECT REPELLENT</p>
+                    <h6 data-bind="text: Header"></h6>
                     <a href="#lineofbusiness" class="btn btn-primary">view more</a>
                 </div>
             </div>
-            <div class="col-md-2 col-sm-6 col-xs-12 cust-col-md-3">
+            <!--<div class="col-md-2 col-sm-6 col-xs-12 cust-col-md-3">
                 <div class="serv-block border-red">
                     <img src="http://www.bhuvicare.com/gallery/events/57143767598066.jpg" width="150" alt="">
                     <h6>Business Line 2</h6>
@@ -109,7 +108,7 @@
                     <p class="font-13">TRAP FOR MONITORING STORED PRODUCT INSECTS IN WAREHOUSE</p>
                     <a href="#lineofbusiness" class="btn btn-primary">view more</a>
                 </div>
-            </div>
+            </div>-->
         </div>
     </div>
 </main>

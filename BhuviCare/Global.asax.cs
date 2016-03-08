@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Http;
-
 using System.Web.Routing;
-using SouthCPIMWeb.App_Start;
+using BhuviCare.App_Start;
 
-namespace SouthCPIMWeb
+namespace BhuviCare
 {
     // Note: For instructions on enabling IIS6 or IIS7 classic mode, 
     // visit http://go.microsoft.com/?LinkId=9394801

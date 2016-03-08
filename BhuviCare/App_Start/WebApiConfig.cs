@@ -1,7 +1,7 @@
 ﻿using System.Net.Http.Formatting;
 using System.Web.Http;
 
-namespace SouthCPIMWeb.App_Start
+namespace BhuviCare.App_Start
 {
     public static class WebApiConfig
     {
@@ -13,10 +13,12 @@ namespace SouthCPIMWeb.App_Start
                 routeTemplate: "api/{controller}/{action}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
-            config.Routes.MapHttpRoute(
-                name: "DefaultApi1",
-                routeTemplate: "api/{controller}/{action}/{id}/{name}"
-            );
+
+            //config.Routes.MapHttpRoute(
+            //    name: "DefaultApi1",
+            //    routeTemplate: "api/{controller}/{action}/{id}/{name}"
+            //);
+
             //config.EnableCors();
             // Uncomment the following line of code to enable query support for actions with an IQueryable or IQueryable<T> return type.
             // To avoid processing unexpected or malicious queries, use the validation settings on QueryableAttribute to validate incoming queries.
