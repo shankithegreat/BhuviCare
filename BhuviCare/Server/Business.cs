@@ -40,6 +40,30 @@ namespace BhuviCare
                 }
             }
 
+            return lstMSNews;
+        }
+
+        public List<BannerData> BannerData()
+        {
+            List<BannerData> lstMSNews = new List<BannerData>();
+            using (DataSet ds = dataAccess.GetBannerData())
+            {
+                if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                {
+                    foreach (DataRow dataRow in ds.Tables[0].Rows)
+                    {
+                        BannerData bannerData = new BannerData()
+                        {
+                            NoteText = Helper.GetDbValue(dataRow["NoteText"]),
+                            Id = Helper.ConvertToInt(dataRow["Id"]),
+                            ButtonLink = Helper.GetDbValue(dataRow["ButtonLink"]),
+                            ImageUrl = Helper.GetDbValue(dataRow["ImageUrl"]),
+                        };
+
+                        lstMSNews.Add(bannerData);
+                    }
+                }
+            }
 
             return lstMSNews;
         }
@@ -49,6 +73,19 @@ namespace BhuviCare
             try
             {
                 dataAccess.UpdateLob(lineOfBusiness);
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public string UpdateBanner(BannerData bannerData)
+        {
+            try
+            {
+                dataAccess.UpdateUpdateBannerLob(bannerData);
                 return "OK";
             }
             catch (Exception ex)

@@ -10,7 +10,10 @@ define(['plugins/router', '../services/home', 'knockout', 'jquery', 'summernote'
                 picUrl: ko.observable(),
                 header: ko.observable(),
                 link: ko.observable(),
+                action: ko.observable(),
+                lobName: ko.observable()
             },
+            lobData: ko.observableArray([]),
             activate: function () {
 
             },
@@ -29,7 +32,9 @@ define(['plugins/router', '../services/home', 'knockout', 'jquery', 'summernote'
                     }
                 });
 
-
+                home.getLob().pipe(function (data) {
+                    self.lobData(data);
+                });
             },
             updateLob: function () {
                 var self = this;
@@ -37,14 +42,17 @@ define(['plugins/router', '../services/home', 'knockout', 'jquery', 'summernote'
                     UserInfo: self.userInfo,
                     PicUrl: self.lob.picUrl(),
                     Header: self.lob.header(),
-                    Link: self.lob.link()
+                    Link: self.lob.link(),
+                    Action: self.lob.action(),
+                    LobName: self.lob.lobName()
                 };
                 home.updateLob(lobInput).pipe(function (data) {
+                    //debugger;
                     if (data == true || data == "OK" || data == "True") {
-                        Materialize.toast('Saved Successfully!', 4000);
+                        alert('Saved Successfully!');
                     }
                     else {
-                        Materialize.toast('Saving Failed!', 4000);
+                        alert('Saving Failed!');
                     }
                 });
             }

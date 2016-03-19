@@ -31,10 +31,57 @@ namespace BhuviCare
             return ExecuteDataSet(query, "tblLineOfBusiness");
         }
 
+        public DataSet GetBannerData()
+        {
+            string query = "select id,ImageUrl,NoteText,ButtonLink from tblBannerImages";
+            return ExecuteDataSet(query, "tblBannerImages");
+        }
+
         public void UpdateLob(LineOfBusiness lineOfBusiness)
         {
-            int maxId = GetMaxId("tblLineOfBusiness", "Id") + 1;
-            string query = "INSERT INTO [tblLineOfBusiness]([Id],[PicUrl],[Header],[ButtonLink])VALUES(" + maxId + ",'" + lineOfBusiness.PicUrl + "','" + lineOfBusiness.Header + "','" + lineOfBusiness.Link + "');";
+            int maxId;
+            string query = string.Empty;
+            switch (lineOfBusiness.Action.ToUpper())
+            {
+                case "I":
+                    maxId = GetMaxId("tblLineOfBusiness", "Id") + 1;
+                    query = "INSERT INTO [tblLineOfBusiness]([Id],[PicUrl],[Header],[ButtonLink])VALUES(" + maxId + ",'" + lineOfBusiness.PicUrl + "','" + lineOfBusiness.Header + "','" + lineOfBusiness.Link + "');";
+                    break;
+                case "U":
+                    maxId = GetMaxId("tblLineOfBusiness", "Id") + 1;
+                    query = "UPDATE [tblLineOfBusiness] SET PicUrl = '" + lineOfBusiness.PicUrl + "',Header='" + lineOfBusiness.Header + "',ButtonLink='" + lineOfBusiness.Link + "' WHERE Id =" + lineOfBusiness.LobName;
+                    break;
+                case "D":
+                    maxId = GetMaxId("tblLineOfBusiness", "Id") + 1;
+                    query = "INSERT INTO [tblLineOfBusiness]([Id],[PicUrl],[Header],[ButtonLink])VALUES(" + maxId + ",'" + lineOfBusiness.PicUrl + "','" + lineOfBusiness.Header + "','" + lineOfBusiness.Link + "');";
+                    break;
+                default:
+                    break;
+            }
+            
+            ExecuteNonQuery(query);
+        }
+
+        public void UpdateUpdateBannerLob(BannerData bannerData)
+        {
+            int maxId;
+            string query = string.Empty;
+            switch (bannerData.Action.ToUpper())
+            {
+                case "I":
+                    maxId = GetMaxId("tblBannerImages", "Id") + 1;
+                    query = "INSERT INTO [tblBannerImages]([Id],[ImageUrl],[NoteText],[ButtonLink])VALUES(" + maxId + ",'" + bannerData.ImageUrl + "','" + bannerData.NoteText + "','" + bannerData.ButtonLink + "');";
+                    break;
+                case "U":
+                    query = "UPDATE [tblBannerImages] SET ImageUrl = '" + bannerData.ImageUrl + "',NoteText='" + bannerData.NoteText + "',ButtonLink='" + bannerData.ButtonLink + "' WHERE Id =" + bannerData.Id;
+                    break;
+                case "D":
+                    query = "DELETE [tblBannerImages] WHERE Id = " + bannerData.Id;
+                    break;
+                default:
+                    break;
+            }
+
             ExecuteNonQuery(query);
         }
 
