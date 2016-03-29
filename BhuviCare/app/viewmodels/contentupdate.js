@@ -13,9 +13,16 @@ define(['plugins/router', '../services/home', 'knockout', 'jquery', 'summernote'
                 action: ko.observable(),
                 lobName: ko.observable()
             },
+            companyInfo: {
+                Id: ko.observable(),
+                ImageUrl: ko.observable(),
+                Header: ko.observable(),
+                Content: ko.observable(),
+                PageTitle: ko.observable()
+            },
             lobData: ko.observableArray([]),
+            selectedComCategory: ko.observable(),
             activate: function () {
-
             },
             attached: function () {
                 var self = this;
@@ -29,6 +36,15 @@ define(['plugins/router', '../services/home', 'knockout', 'jquery', 'summernote'
                     activate: function (e, tab) {
                     },
                     activateState: function (e, state) {
+                    }
+                });
+
+                $('#widgetContent2').summernote({
+                    height: 300,                 // set editor height
+                    minHeight: null,             // set minimum height of editor
+                    maxHeight: null,             // set maximum height of editor
+                    focus: true,
+                    oninit: function () {
                     }
                 });
 
@@ -55,7 +71,27 @@ define(['plugins/router', '../services/home', 'knockout', 'jquery', 'summernote'
                         alert('Saving Failed!');
                     }
                 });
-            }
+            },
+            updateCompInfo: function () {
+                var self = this;
+                var compInfo = {
+                    Id: self.selectedComCategory() != undefined ? self.selectedComCategory()[0] : 1,
+                    UserInfo: self.userInfo,
+                    ImageUrl: self.companyInfo.ImageUrl(),
+                    Header: self.companyInfo.Header(),
+                    Content: $('#widgetContent2').code(),
+                    PageTitle: self.companyInfo.PageTitle(),
+                };
+                home.updateCompInfo(compInfo).pipe(function (data) {
+                    //debugger;
+                    if (data == true || data == "OK" || data == "True") {
+                        alert('Saved Successfully!');
+                    }
+                    else {
+                        alert('Saving Failed!');
+                    }
+                });
+            },
         };
 
         return vm;

@@ -27,5 +27,23 @@ namespace BhuviCare.Controllers
                 return Request.CreateErrorResponse(System.Net.HttpStatusCode.BadRequest, ex.Message);
             }
         }
+
+        [Route("companyinfo")]
+        [HttpGet]
+        [ActionName("companyinfo")]
+        [ResponseType(typeof(HttpResponseMessage))]
+        public HttpResponseMessage CompanyInfo()
+        {
+            try
+            {
+                Business business = new Business();
+                return Request.CreateResponse<List<CompanyInfo>>(System.Net.HttpStatusCode.OK, business.CompanyInfo(0));
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateErrorResponse(System.Net.HttpStatusCode.BadRequest, ex.Message);
+            }
+        }
+
     }
 }

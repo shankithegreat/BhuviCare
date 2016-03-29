@@ -52,5 +52,26 @@ namespace BhuviCare.Controllers
                 return ex.Message;
             }
         }
+        
+        [Route("updatecompanyinfo")]
+        [HttpPost]
+        [ActionName("updatecompanyinfo")]
+        public string UpdateCompanyInfo(CompanyInfo companyInfo)
+        {
+            try
+            {
+                //if (Helper.Encrypt("bhuvicare").Equals(lineOfBusiness.UserInfo.UserName) && Helper.Encrypt("BhuviCare@004").Equals(lineOfBusiness.UserInfo.Password))
+                //{
+                Business business = new Business();
+                return business.UpdateCompanyInfo(companyInfo);
+                //}
+
+                //return "Invalid Credentials";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
     }
 }

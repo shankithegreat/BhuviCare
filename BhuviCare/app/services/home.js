@@ -1,3 +1,4 @@
+'use strict';
 define(['jquery', 'knockout'], function (jquery, ko) {
     var self = this;
     var serviceBase = "/api/";
@@ -10,7 +11,6 @@ define(['jquery', 'knockout'], function (jquery, ko) {
                 type: 'GET',
                 dataType: 'json',
                 success: function (data) {
-                    //alert(data);
                 },
                 error: function (x, y, z) {
                     alert(x + '\n' + y + '\n' + z);
@@ -37,6 +37,41 @@ define(['jquery', 'knockout'], function (jquery, ko) {
                 }
             });
         },
+
+        getCompanyInfo: function (data) {
+            jquery.support.cors = true;
+            return $.ajax({
+                url: serviceBase + 'home/companyinfo',
+                type: 'GET',
+                dataType: 'json',
+                success: function (data) {
+                    //alert(data);
+                },
+                error: function (x, y, z) {
+                    alert(x + '\n' + y + '\n' + z);
+                }
+            });
+        },
+
+        updateCompInfo: function (data) {
+            jquery.support.cors = true;
+            return $.ajax({
+                url: serviceBase + 'update/updatecompanyinfo',
+                type: 'POST',
+                data: ko.toJSON(data),
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                dataType: 'json',
+                success: function (data) {
+
+                },
+                error: function (x, y, z) {
+                    alert(ko.toJSON(x) + ko.toJSON(x) + ko.toJSON(x));
+                }
+            });
+        },        
     };
 
     return service;

@@ -68,6 +68,31 @@ namespace BhuviCare
             return lstMSNews;
         }
 
+        public List<CompanyInfo> CompanyInfo(int Id)
+        {
+            List<CompanyInfo> lstInfo = new List<CompanyInfo>();
+            using (DataSet ds = dataAccess.GetCompanyInfoData(Id))
+            {
+                if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                {
+                    foreach (DataRow dataRow in ds.Tables[0].Rows)
+                    {
+                        CompanyInfo companyData = new CompanyInfo()
+                        {
+                            Id = Helper.ConvertToInt(dataRow["Id"]),
+                            Header = Helper.GetDbValue(dataRow["Header"]),
+                            Content = Helper.GetDbValue(dataRow["Content"]),
+                            ImageUrl = Helper.GetDbValue(dataRow["ImageUrl"]),
+                            PageTitle = Helper.GetDbValue(dataRow["PageTitle"]),
+                        };
+                        lstInfo.Add(companyData);
+                    }
+                }
+            }
+
+            return lstInfo;
+        }
+
         public string UpdateLob(LineOfBusiness lineOfBusiness)
         {
             try
@@ -86,6 +111,19 @@ namespace BhuviCare
             try
             {
                 dataAccess.UpdateUpdateBannerLob(bannerData);
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public string UpdateCompanyInfo(CompanyInfo companyInfo)
+        {
+            try
+            {
+                dataAccess.UpdateUpdateCompanyInfo(companyInfo);
                 return "OK";
             }
             catch (Exception ex)

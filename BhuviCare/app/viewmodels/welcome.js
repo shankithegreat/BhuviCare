@@ -4,6 +4,12 @@
         var vm = {
             lobData: ko.observableArray([]),
             activate: function () {
+                $("#slides1").responsiveSlides({
+                    auto: true,
+                    pagination: true,
+                    nav: true,
+                    fade: 500
+                });
             },
             attached: function () {
                 var self = this;
@@ -13,7 +19,6 @@
                     nav: true,
                     fade: 500
                 });
-
                 home.getLob().pipe(function (data) {
                     self.lobData(data);
                 });

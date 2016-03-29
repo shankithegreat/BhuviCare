@@ -16,6 +16,12 @@ define(['plugins/router', 'durandal/app'], function (router, app) {
                 { route: 'welcome', title: 'Welcome', moduleId: 'viewmodels/welcome', nav: true },
                 { route: 'company', title: 'About', moduleId: 'viewmodels/company', nav: true },
                 { route: 'lineofbusiness', title: 'LineOfBusiness', moduleId: 'viewmodels/lineofbusiness', nav: true },
+                { route: 'agroinput', title: 'Agro Input', moduleId: 'viewmodels/agroinput', nav: true },
+                { route: 'agroeng', title: 'Agro Engineering', moduleId: 'viewmodels/agroeng', nav: true },
+                { route: 'agroproc', title: 'Agro Processing', moduleId: 'viewmodels/agroproc', nav: true },
+                { route: 'lob', title: 'Line Of Business', moduleId: 'viewmodels/lob', nav: true },
+                { route: 'contactus', title: 'Contact Us', moduleId: 'viewmodels/contactus', nav: true },
+                { route: 'gallery', title: 'Media & Communications', moduleId: 'viewmodels/gallery', nav: true },
                 { route: '', title: 'Welcome', moduleId: 'viewmodels/welcome', nav: true },
                 { route: 'contentupdate', moduleId: 'viewmodels/contentupdate', nav: true }
             ]).buildNavigationModel();

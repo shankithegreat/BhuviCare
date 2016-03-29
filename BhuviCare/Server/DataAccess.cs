@@ -37,6 +37,20 @@ namespace BhuviCare
             return ExecuteDataSet(query, "tblBannerImages");
         }
 
+        public DataSet GetCompanyInfoData(int Id)
+        {
+            string query = string.Empty;
+            if (Id > 0)
+            {
+                query = "SELECT Id,Header,Content,ImageUrl,PageTitle FROM tblCompanyInfo where Id = " + Id;
+            }
+            else
+            {
+                query = "SELECT Id,Header,Content,ImageUrl, PageTitle FROM tblCompanyInfo";
+            }
+            return ExecuteDataSet(query, "tblCompanyInfo");
+        }
+
         public void UpdateLob(LineOfBusiness lineOfBusiness)
         {
             int maxId;
@@ -58,7 +72,7 @@ namespace BhuviCare
                 default:
                     break;
             }
-            
+
             ExecuteNonQuery(query);
         }
 
@@ -82,6 +96,13 @@ namespace BhuviCare
                     break;
             }
 
+            ExecuteNonQuery(query);
+        }
+
+        public void UpdateUpdateCompanyInfo(CompanyInfo companyInfo)
+        {
+            string query = string.Empty;
+            query = "UPDATE [tblCompanyInfo] SET ImageUrl = '" + companyInfo.ImageUrl + "',Header='" + companyInfo.Header + "' ,Content = '" +  companyInfo.Content + "' WHERE [id] =" + companyInfo.Id;
             ExecuteNonQuery(query);
         }
 

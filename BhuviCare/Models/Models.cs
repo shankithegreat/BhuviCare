@@ -32,4 +32,14 @@ namespace BhuviCare.Models
         public string ButtonLink { get; set; }
         public string Action { get; set; }
     }
+
+    public class CompanyInfo
+    {
+        public UserInfo UserInfo { get; set; }
+        public int Id { get; set; }
+        public string ImageUrl { get; set; }
+        public string Header { get; set; }
+        public string Content{ get; set; }
+        public string PageTitle { get; set; }
+    }
 }

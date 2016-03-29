@@ -1,0 +1,59 @@
+﻿<main>
+    <div class="container-fluid">
+        <br />
+        <div class="row">
+            <div class="col-md-3 col-sm-6 col-xs-12 cust-col-md-3">
+                <div class="serv-block border-green">
+                    <div class="row" style="height:300px;">
+                        <img width="200" src="images/gallery.jpg" alt="" />
+                        <h6>Photos</h6>
+                    </div>
+                    <div class="row">
+                        <a data-toggle="modal" data-target="#myModal" class="btn btn-primary" style="vertical-align:bottom;">view more</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-12 cust-col-md-3">
+                <div class="serv-block border-green">
+                    <div class="row" style="height:300px;">
+                        <img width="200" src="images/vdos.jpg" alt="" />
+                        <h6>Videos</h6>
+                    </div>
+                    <div class="row">
+                        <a data-toggle="modal" data-target="#myModal" class="btn btn-primary" style="vertical-align:bottom;">view more</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-12 cust-col-md-3">
+                <div class="serv-block border-green">
+                    <div class="row" style="height:300px;">
+                        <img width="200" src="images/news_icon.png" alt="" />
+                        <div style="padding-top:30px;"></div>
+                        <h6>News</h6>
+                    </div>
+                    <div class="row">
+                        <a data-toggle="modal" data-target="#myModal" class="btn btn-primary" style="vertical-align:bottom;">view more</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<footer data-bind="compose: { model: 'viewmodels/footer', activate: true }"></footer>
+<!--modal diag-->
+<div class="modal fade modal-fullscreen force-fullscreen" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header" style="position: relative;">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Product Details</h4>
+            </div>
+            <div class="modal-body">
+                <img id="imageVwr" class="img-responsive" />
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

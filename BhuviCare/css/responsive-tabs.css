@@ -1,15 +1,15 @@
 .r-tabs {
 	position: relative;
-	background-color: #8EBF6A;
-	border-top: 1px solid #8EBF6A;
-	border-right: 1px solid #8EBF6A;
-	border-left: 1px solid #8EBF6A;
-	border-bottom: 4px solid #8EBF6A;
+	background-color: #92C203;
+	border-top: 1px solid #92C203;
+	border-right: 1px solid #92C203;
+	border-left: 1px solid #92C203;
+	border-bottom: 4px solid #92C203;
 	border-radius: 4px;
 }
 .r-tabs .r-tabs-nav .r-tabs-tab {
 	position: relative;
-	background-color: #8EBF6A;
+	background-color: #92C203;
 }
 /* Tab anchor */
 .r-tabs .r-tabs-nav .r-tabs-anchor {
@@ -45,7 +45,7 @@
 	display: block;
 	padding: 10px;
 
-	background-color: #8EBF6A;
+	background-color: #92C203;
 	color: #fff;
 	font-weight: bold;
 	text-decoration: none;
@@ -59,7 +59,7 @@
 /* Active accordion anchor */
 .r-tabs .r-tabs-accordion-title.r-tabs-state-active .r-tabs-anchor {
 	background-color: #fff;
-	color: #8EBF6A;
+	color: #92C203;
 	text-shadow: none;
 }
 
@@ -102,3 +102,5 @@
         display: block;
     }
 }
+
+.carousel.carousel-fit{position:relative}.carousel.carousel-fit.slide{overflow:hidden}.carousel.carousel-fit .carousel-inner>.next,.carousel.carousel-fit .carousel-inner>.prev{bottom:0}.carousel.carousel-fit .carousel-inner>.item{text-align:center}.carousel.carousel-fit .carousel-inner>.item>img{display:inline-block}.carousel.carousel-fit .carousel-inner>.item>.carousel-caption{bottom:0;left:0;right:0}.modal.modal-fullscreen .modal-dialog,.modal.modal-fullscreen .modal-content{bottom:0;left:0;position:absolute;right:0;top:0}.modal.modal-fullscreen .modal-dialog{margin:0;width:100%}.modal.modal-fullscreen .modal-content{border:none;-moz-border-radius:0;border-radius:0;-webkit-box-shadow:inherit;-moz-box-shadow:inherit;-o-box-shadow:inherit;box-shadow:inherit}.modal.modal-fullscreen.force-fullscreen .modal-body{padding:0}.modal.modal-fullscreen.force-fullscreen .modal-header,.modal.modal-fullscreen.force-fullscreen .modal-footer{left:0;position:absolute;right:0}.modal.modal-fullscreen.force-fullscreen .modal-header{top:0}.modal.modal-fullscreen.force-fullscreen .modal-footer{bottom:0}

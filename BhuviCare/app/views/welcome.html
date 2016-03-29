@@ -9,7 +9,7 @@
                         <div class="col-md-3 col-sm-12 col-xs-12" style="float:right; background-color:darkgreen; opacity:0.7; height:150px;">
                             <div class="row" style="padding-left:5px;">
                                 <p style="color:#FFF; font-size:small;">Bhuvicare is an organization focused on natural way of controlling pests, nematodes and fungus occurring in agriculture, horticulture and plantation crops.</p>
-                                <a href="#company" class="btn btn-primary" style="float:left; vertical-align:central; display:inline;">About Us</a>
+                                <a href="#company" class="btn btn-primary" style="float:left; vertical-align:central; display:inline; color:#fff; font-weight:900;">About Us</a>
                             </div>
                         </div>
                     </li>
@@ -23,7 +23,7 @@
                         <div class="col-md-3 col-sm-12 col-xs-12" style="float:right; background-color:darkgreen; opacity:0.7; height:150px;">
                             <div class="row" style="padding-left:5px;">
                                 <p style="color:#FFF; font-size:small;">Bhuvicare's overall mission is to service the larger society and mankind by providing natural way of controlling pests, nematodes and fungus...<a href="#company">Read More</a></p>
-                                <a href="#company" class="btn btn-primary" style="float:left; vertical-align:central; display:inline;">Mission</a>
+                                <a href="#company" class="btn btn-primary" style="float:left; vertical-align:central; display:inline; color:#fff; font-weight:900;">Mission</a>
                             </div>
                         </div>
                     </li>
@@ -37,7 +37,7 @@
                         <div class="col-md-3 col-sm-12 col-xs-12" style="float:right; background-color:darkgreen; opacity:0.7; height:150px;">
                             <div class="row" style="padding-left:5px;">
                                 <p style="color:#FFF; font-size:small;">In today's global warming conditions, due to chemical pesticide usage, food crops are toxicated and lead us to unhealthy mankind...<a href="#company">Read More</a></p>
-                                <a href="#company" class="btn btn-primary" style="float:left; vertical-align:central; display:inline;">Vision</a>
+                                <a href="#company" class="btn btn-primary" style="float:left; vertical-align:central; display:inline; color:#fff; font-weight:900;">Vision</a>
                             </div>
                         </div>
                     </li>
@@ -45,21 +45,10 @@
             </li>
             <li>
                 <img src="images/bg-6.jpg" alt="" class="img-responsive myimage" />
-                <ul id="demo-block">
-                    <li></li>
-                    <li style="padding-top:7%;">
-                        <div class="col-md-3 col-sm-12 col-xs-12" style="float:right; background-color:darkgreen; opacity:0.7; height:150px;">
-                            <div class="row" style="padding-left:5px;">
-                                <p style="color:#FFF; font-size:small;">Only by natural, organic products and healing agriculture can sustain and survive. Bhuvicare's objective is to empower, service and support...<a href="company">ReadMore</a></p>
-                                <a href="#company" class="btn btn-primary" style="float:left; vertical-align:central; display:inline;">Objective</a>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
             </li>
-            <li>
+            <!--<li>
                 <img src="images/bg-3.jpg" alt="" class="img-responsive myimage" />
-            </li>
+            </li>-->
             <!--<li class="hidden-xs">
                 <div>
                     <iframe class="embed-responsive-item" src="video.html" style="width:100%; height:387px;"></iframe>
@@ -72,9 +61,19 @@
         <div class="row" data-bind="foreach: lobData">
             <div class="col-md-3 col-sm-6 col-xs-12 cust-col-md-3">
                 <div class="serv-block border-green">
-                    <img data-bind="attr: {src: PicUrl}" width="200" alt="">
-                    <h6 data-bind="text: Header"></h6>
-                    <a href="#lineofbusiness" class="btn btn-primary" style="vertical-align:bottom;">view more</a>
+                    <div class="row" style="height:200px;">
+                        <img data-bind="attr: {src: PicUrl}" width="200" height="100" alt="" />
+                        <h6 data-bind="text: Header"></h6>
+                        <!-- ko if: Header == "AGRO INPUT DIVISION" -->
+                        <br />
+                        <!-- /ko -->
+                        <!-- ko if: Header == "PLANTATION  DIVISION" -->
+                        <br />
+                        <!-- /ko -->
+                    </div>
+                    <div class="row">
+                        <a data-bind="attr: { href: Link }" class="btn btn-primary" style="vertical-align:bottom;">view more</a>
+                    </div>
                 </div>
             </div>
         </div>

@@ -4,20 +4,18 @@
             <li><a href="#tab-1">About Us</a></li>
             <li><a href="#tab-2">Mission</a></li>
             <li><a href="#tab-3">Vision</a></li>
-            <li><a href="#tab-4">Objective</a></li>
+            <li><a href="#tab-4">Our Team</a></li>
         </ul>
         <div id="tab-1" class="z-depth-2">
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="panel panel-default my_panel z-depth-1">
                         <div class="panel-body">
-                            <img src="../../images/ricet.png" alt="" class="iconImage center-block" />
+                            <img data-bind="attr: {src: aboutUs().ImageUrl}" alt="" class="iconImage center-block" />
                         </div>
                         <div class="panel-footer">
-                            <h3>About Us</h3>
-                            <p style="color:forestgreen; font-weight:600; text-align:left;">
-                                Bhuvicare is an organization focused on natural way of controlling pests, nematodes and fungus occurring in agriculture, horticulture and plantation crops.
-                                Since its inception in Feb 2002, Bhuvicare has been serving agricultural community in Tamilnadu as well as other states in India through various products & services, including its flagship.
+                            <h3 data-bind="text:aboutUs().Header"></h3>
+                            <p data-bind="html: aboutUs().Content" style="color:forestgreen; font-weight:600; text-align:left;">
                             </p>
                         </div>
                     </div>
@@ -29,12 +27,11 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="panel panel-default my_panel z-depth-1">
                         <div class="panel-body">
-                            <img src="../../images/cardamont.png" alt="" class="iconImage center-block" />
+                            <img data-bind="attr: {src: mission().ImageUrl}" alt="" class="iconImage center-block" />
                         </div>
                         <div class="panel-footer">
-                            <h3>Our Mission</h3>
-                            <p style="color:forestgreen; font-weight:600; text-align:left;">
-                                Bhuvicare's overall mission is to service the larger society and mankind by providing natural way of controlling pests, nematodes and fungus occurring in the field of agriculture, horticulture and plantation crops.
+                            <h3 data-bind="text:mission().Header"></h3>
+                            <p data-bind="html: mission().Content" style="color:forestgreen; font-weight:600; text-align:left;">
                             </p>
                         </div>
                     </div>
@@ -46,13 +43,11 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="panel panel-default my_panel z-depth-1">
                         <div class="panel-body">
-                            <img src="../../images/treet.png" alt="" class="iconImage center-block" />
+                            <img data-bind="attr: {src: vision().ImageUrl}" alt="" class="iconImage center-block" />
                         </div>
                         <div class="panel-footer">
-                            <h3>Our Vision</h3>
-                            <p style="color:forestgreen; font-weight:600; text-align:left;">
-                                In today's global warming conditions, due to chemical pesticide usage, food crops are toxicated and lead us to unhealthy mankind.
-                                Bhuvicare vision is to provide non- toxic healthy, sustainable agricultural produce to mankind.
+                            <h3 data-bind="text:vision().Header"></h3>
+                            <p data-bind="html: vision().Content" style="color:forestgreen; font-weight:600; text-align:left;">
                             </p>
                         </div>
                     </div>
@@ -69,7 +64,15 @@
                         <div class="panel-footer">
                             <!--<h3>Bhuvi Care</h3>-->
                             <p style="color:forestgreen; font-weight:600; text-align:left;">
-                                Only by natural, organic products and healing agriculture can sustain and survive. Bhuvicare's objective is to empower, service and support agriculturists and farmers fertilizing their farm lands in organic natural way and in that process resulting in higher productivity and yield.
+                                <b>MANAGING DIRECTOR</b>
+                                <br />
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>T.G.R. KUNJHARHAMONEY    B.E (Ag), M.B.A</b>
+                                <br /><br />
+                                <b>DIRECTORS</b>
+                                <br />
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>G. RADHAKRISHNAN.</b>
+                                <br />
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>S. VISALAKSHI</b>
                             </p>
                         </div>
                     </div>
