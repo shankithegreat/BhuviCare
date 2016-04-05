@@ -137,10 +137,10 @@
     <Content Include="css\themes.gif" />
     <Content Include="Global.asax" />
     <Content Include="images\bg-1.jpg" />
+    <Content Include="images\bg-11.jpg" />
     <Content Include="images\bg-2.jpg" />
     <Content Include="images\bg-3.jpg" />
     <Content Include="images\bg-4.jpg" />
-    <Content Include="images\bg-5.jpg" />
     <Content Include="images\bg-6.jpg" />
     <Content Include="images\cardamont.png" />
     <Content Include="images\eartht.png" />
@@ -151,6 +151,7 @@
     <Content Include="images\ricet.png" />
     <Content Include="images\treet.png" />
     <Content Include="images\vdos.jpg" />
+    <Content Include="images\vkriyaa.jpg" />
     <Content Include="index.html" />
     <Content Include="lib\annyang\annyang.min.js" />
     <Content Include="lib\bootstrap\css\bootstrap.min.css" />
@@ -185,6 +186,8 @@
     <Content Include="lib\materialize\js\materialize.min.js" />
     <Content Include="lib\pace\css\pace.css" />
     <Content Include="lib\pace\js\pace.min.js" />
+    <Content Include="lib\papercollapse\css\paper-collapse.min.css" />
+    <Content Include="lib\papercollapse\js\paper-collapse.min.js" />
     <Content Include="lib\require\almond-custom.js" />
     <Content Include="lib\require\cordova-2.7.0.js" />
     <Content Include="lib\require\r.js" />

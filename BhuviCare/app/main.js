@@ -13,6 +13,7 @@
         'pace': '../lib/pace/js/pace.min',
         'responsiveSlides': '../lib/jquery/responsiveslides.min',
         'responsiveTabs': '../lib/jquery/jquery.responsiveTabs.min',
+        'papercollapse': '../lib/papercollapse/js/paper-collapse.min'
     },
     shim: {
         'bootstrap': {
@@ -29,6 +30,10 @@
         },
         'summernote': {
             deps: ['jquery', 'bootstrap']
+        },
+        'papercollapse': {
+            deps: ['jquery'],
+            exports: 'jQuery'
         }
     }
 });
