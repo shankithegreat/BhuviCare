@@ -143,6 +143,12 @@
     <Content Include="images\bg-4.jpg" />
     <Content Include="images\bg-6.jpg" />
     <Content Include="images\cardamont.png" />
+    <Content Include="images\stackprobe2.jpg" />
+    <Content Include="images\stackprobe1.jpg" />
+    <Content Include="images\uvlighttrap2.jpg" />
+    <Content Include="images\uvlighttrap1.jpg" />
+    <Content Include="images\pulsebeetle.jpg" />
+    <Content Include="images\tnauprobe.jpg" />
     <Content Include="images\eartht.png" />
     <Content Include="images\gallery.jpg" />
     <Content Include="images\icon.png" />
