@@ -30,6 +30,7 @@ define(['plugins/router', '../services/home', 'knockout', 'jquery', 'responsiveT
                     self.vision(data[2]);
                     //self.objectives(data[3]);
                 });
+                $(".page-host").scrollTop(1);
             },
         };
 

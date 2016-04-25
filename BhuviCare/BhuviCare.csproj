@@ -103,10 +103,16 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="aboutus.html" />
     <Content Include="app\main.js" />
     <Content Include="app\services\home.js" />
     <Content Include="app\viewmodels\agroproc.js" />
     <Content Include="app\viewmodels\agroeng.js" />
+    <Content Include="app\viewmodels\agroplant.js" />
+    <Content Include="app\viewmodels\news.js" />
+    <Content Include="app\viewmodels\photos.js" />
+    <Content Include="app\viewmodels\videos.js" />
+    <Content Include="app\viewmodels\agrotrade.js" />
     <Content Include="app\viewmodels\contactus.js" />
     <Content Include="app\viewmodels\gallery.js" />
     <Content Include="app\viewmodels\agroinput.js" />
@@ -115,8 +121,13 @@
     <Content Include="app\viewmodels\company.js" />
     <Content Include="app\viewmodels\contentupdate.js" />
     <Content Include="app\viewmodels\footer.js" />
+    <Content Include="app\views\agroplant.html" />
     <Content Include="app\views\agroproc.html" />
     <Content Include="app\views\agroeng.html" />
+    <Content Include="app\views\news.html" />
+    <Content Include="app\views\videos.html" />
+    <Content Include="app\views\photos.html" />
+    <Content Include="app\views\agrotrade.html" />
     <Content Include="app\views\contactus.html" />
     <Content Include="app\views\gallery.html" />
     <Content Include="app\views\company.html" />

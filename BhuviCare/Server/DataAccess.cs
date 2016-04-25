@@ -37,6 +37,12 @@ namespace BhuviCare
             return ExecuteDataSet(query, "tblBannerImages");
         }
 
+        public DataSet LoadPhotos()
+        {
+            string query = "select * from tblPhotos order by PhotoHeader";
+            return ExecuteDataSet(query, "tblPhotos");
+        }
+
         public DataSet GetCompanyInfoData(int Id)
         {
             string query = string.Empty;
@@ -102,7 +108,28 @@ namespace BhuviCare
         public void UpdateUpdateCompanyInfo(CompanyInfo companyInfo)
         {
             string query = string.Empty;
-            query = "UPDATE [tblCompanyInfo] SET ImageUrl = '" + companyInfo.ImageUrl + "',Header='" + companyInfo.Header + "' ,Content = '" +  companyInfo.Content + "' WHERE [id] =" + companyInfo.Id;
+            query = "UPDATE [tblCompanyInfo] SET ImageUrl = '" + companyInfo.ImageUrl + "',Header='" + companyInfo.Header + "' ,Content = '" + companyInfo.Content + "' WHERE [id] =" + companyInfo.Id;
+            ExecuteNonQuery(query);
+        }
+
+        public void UpdatePhoto(PhotoDetails photoDetails)
+        {
+            int maxId = GetMaxId("tblPhotos", "Id") + 1;
+            string query = "INSERT INTO [tblPhotos]([Id],[PhotoHeader],[ThumbnailUrl],[PhotoUrl])VALUES(" + maxId + ",'" + photoDetails.PhotoHeader + "','" + photoDetails.ThumbnailUrl + "','" + photoDetails.PhotoUrl + "');";
+            ExecuteNonQuery(query);
+        }
+
+        public void UpdateVideo(VideoDetails videoDetails)
+        {
+            int maxId = GetMaxId("tblVideos", "Id") + 1;
+            string query = "INSERT INTO [tblVideos]([Id],[VideoHeader],[VideoUrl])VALUES(" + maxId + ",'" + videoDetails.VideoHeader + "','" + videoDetails.VideoUrl + "');";
+            ExecuteNonQuery(query);
+        }
+
+        public void UpdateNews(News news)
+        {
+            int maxId = GetMaxId("tblNews", "Id") + 1;
+            string query = "INSERT INTO [tblNews]([Id],[NewsHeader],[NewsContent])VALUES(" + maxId + ",'" + news.NewsHeader + "','" + news.NewsDetails + "');";
             ExecuteNonQuery(query);
         }
 

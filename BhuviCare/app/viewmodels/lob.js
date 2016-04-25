@@ -7,6 +7,7 @@
             },
             attached: function () {
                 var self = this;
+                $(".page-host").scrollTop(1);
                 $(function () {
                     $(".collapse-card").paperCollapse();
                 });

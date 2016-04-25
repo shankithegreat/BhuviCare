@@ -45,5 +45,21 @@ namespace BhuviCare.Controllers
             }
         }
 
+        [Route("photos")]
+        [HttpGet]
+        [ActionName("photos")]
+        [ResponseType(typeof(HttpResponseMessage))]
+        public HttpResponseMessage LoadPhotos()
+        {
+            try
+            {
+                Business business = new Business();
+                return Request.CreateResponse<List<List<PhotoDetails>>>(System.Net.HttpStatusCode.OK, business.LoadPhotos());
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateErrorResponse(System.Net.HttpStatusCode.BadRequest, ex.Message);
+            }
+        }
     }
 }

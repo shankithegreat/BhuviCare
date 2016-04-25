@@ -1,0 +1,23 @@
+﻿<main>
+    <br />
+    <div class="btn-group btn-breadcrumb">
+        <a href="index.html" class="btn btn-default"><i class="glyphicon glyphicon-home"></i></a>
+        <a href="#gallery" class="btn btn-default">Media &amp; Communication</a>
+        <a href="#photos" class="btn btn-default">Photos</a>
+    </div>
+    <div class="container-fluid">
+        <br />
+        <div class="row">
+            <div class="col-lg-12">
+                <h4>Photos</h4>
+            </div>
+        </div>
+        <div class="container-fluid" data-bind="foreach: photos">
+            <h6 data-bind="text: $data[0].PhotoHeader"></h6>
+            <div class="row" data-bind="foreach: $data">
+                <div class="col-lg-1">
+                    <img class="img-responsive" data-bind="attr:{src: $data.PhotoUrl}" />
+                </div>
+            </div>
+        </div>
+</main>

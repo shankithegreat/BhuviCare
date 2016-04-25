@@ -10,6 +10,7 @@ define(['plugins/router', '../services/home', 'knockout', 'jquery'],
             },
             attached: function () {
                 var self = this;
+                $(".page-host").scrollTop(1);
             },
         };
 

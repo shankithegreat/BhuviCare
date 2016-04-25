@@ -13,16 +13,21 @@ define(['plugins/router', 'durandal/app'], function (router, app) {
         activate: function () {
             sessionStorage.clear();
             router.map([
-                { route: 'welcome', title: 'Home', moduleId: 'viewmodels/welcome', nav: true },
-                { route: 'company', title: 'About', moduleId: 'viewmodels/company', nav: true },
-                { route: 'lineofbusiness', title: 'Lines Of Businesses', moduleId: 'viewmodels/lineofbusiness', nav: true },
+                { route: 'welcome', title: 'BhuviCare', moduleId: 'viewmodels/welcome', nav: true },
+                { route: 'company', title: 'BhuviCare-AboutUs', moduleId: 'viewmodels/company', nav: true },
+                { route: 'lineofbusiness', title: 'BhuviCare-Lines Of Businesses', moduleId: 'viewmodels/lineofbusiness', nav: true },
                 { route: 'agroinput', title: 'Agro Input', moduleId: 'viewmodels/agroinput', nav: true },
                 { route: 'agroeng', title: 'Agro Engineering', moduleId: 'viewmodels/agroeng', nav: true },
                 { route: 'agroproc', title: 'Agro Processing', moduleId: 'viewmodels/agroproc', nav: true },
+                { route: 'agroplant', title: 'Agro Plantation', moduleId: 'viewmodels/agroplant', nav: true },
+                { route: 'agrotrade', title: 'Agro Trading', moduleId: 'viewmodels/agrotrade', nav: true },
                 { route: 'lob', title: 'Lines Of Businesses', moduleId: 'viewmodels/lob', nav: true },
                 { route: 'contactus', title: 'Contact Us', moduleId: 'viewmodels/contactus', nav: true },
                 { route: 'gallery', title: 'Media & Communications', moduleId: 'viewmodels/gallery', nav: true },
-                { route: '', title: 'Home', moduleId: 'viewmodels/welcome', nav: true },
+                { route: 'photos', title: 'Photos', moduleId: 'viewmodels/photos', nav: true },
+                { route: 'videos', title: 'Videos', moduleId: 'viewmodels/videos', nav: true },
+                { route: 'news', title: 'News', moduleId: 'viewmodels/news', nav: true },
+                { route: '', title: 'BhuviCare', moduleId: mid, nav: true },
                 { route: 'contentupdate', moduleId: 'viewmodels/contentupdate', nav: true }
             ]).buildNavigationModel();
 
@@ -31,23 +36,23 @@ define(['plugins/router', 'durandal/app'], function (router, app) {
 
         attached: function () {
             sessionStorage.clear();
-            if (annyang) {
-                var commands = {
-                    'company': function () {
-                        router.navigate("company");
-                    },
-                    'home': function () {
-                        router.navigate("welcome");
-                    },
-                    'business': function () {
-                        router.navigate("lineofbusiness");
-                    }
-                };
+            //if (annyang) {
+            //    var commands = {
+            //        'company': function () {
+            //            router.navigate("company");
+            //        },
+            //        'home': function () {
+            //            router.navigate("welcome");
+            //        },
+            //        'business': function () {
+            //            router.navigate("lineofbusiness");
+            //        }
+            //    };
 
-                annyang.addCommands(commands);
-                annyang.start();
-                console.log("Speech started");
-            }
+            //    //annyang.addCommands(commands);
+            //    //annyang.start();
+            //    console.log("Speech started");
+            //}
         }
     };
 });

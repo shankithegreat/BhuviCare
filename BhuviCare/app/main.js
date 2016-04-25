@@ -6,11 +6,11 @@
         'durandal': '../lib/durandal/js',
         'plugins': '../lib/durandal/js/plugins',
         'transitions': '../lib/durandal/js/transitions',
-        'knockout': '../lib/knockout/knockout-3.1.0',
-        'bootstrap': '../lib/bootstrap/js/bootstrap.min',
-        'jquery': '../lib/jquery/jquery-2.1.1.min',
-        'summernote': '../lib/summernote/summernote.min',
-        'pace': '../lib/pace/js/pace.min',
+        'knockout': 'https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.0/knockout-min',
+        'bootstrap': 'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min',
+        'jquery': 'https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min',
+        'summernote': 'https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.1/summernote.min',
+        'pace': 'https://cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min',
         'responsiveSlides': '../lib/jquery/responsiveslides.min',
         'responsiveTabs': '../lib/jquery/jquery.responsiveTabs.min',
         'papercollapse': '../lib/papercollapse/js/paper-collapse.min'
@@ -39,8 +39,8 @@
 });
 
 define(['durandal/system', 'durandal/app', 'durandal/viewLocator', 'bootstrap'], function (system, app, viewLocator) {
-    system.debug(true);
-    app.title = 'BhuviCare';
+    system.debug(false);
+    app.title = mtitle;
     app.configurePlugins({
         router: true,
         dialog: true,

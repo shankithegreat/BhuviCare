@@ -20,11 +20,21 @@ define(['plugins/router', '../services/home', 'knockout', 'jquery', 'summernote'
                 Content: ko.observable(),
                 PageTitle: ko.observable()
             },
+            photoDetails: {
+                PhotoHeader: ko.observable(),
+                ThumbnailUrl: ko.observable(),
+                PhotoUrl: ko.observable()
+            },
+            videoDetails: {
+                VideoHeader: ko.observable(),
+                VideoUrl: ko.observable()
+            },
             lobData: ko.observableArray([]),
             selectedComCategory: ko.observable(),
             activate: function () {
             },
             attached: function () {
+                $(".page-host").scrollTop(1);
                 var self = this;
                 var $tabs = $('#horizontalTab');
                 $tabs.responsiveTabs({
@@ -84,6 +94,28 @@ define(['plugins/router', '../services/home', 'knockout', 'jquery', 'summernote'
                 };
                 home.updateCompInfo(compInfo).pipe(function (data) {
                     //debugger;
+                    if (data == true || data == "OK" || data == "True") {
+                        alert('Saved Successfully!');
+                    }
+                    else {
+                        alert('Saving Failed!');
+                    }
+                });
+            },
+            updatePhoto: function () {
+                var self = this;
+                home.updatePhoto(self.photoDetails).pipe(function (data) {
+                    if (data == true || data == "OK" || data == "True") {
+                        alert('Saved Successfully!');
+                    }
+                    else {
+                        alert('Saving Failed!');
+                    }
+                });
+            },
+            updateVideo: function () {
+                var self = this;
+                home.updateVideo(self.videoDetails).pipe(function (data) {
                     if (data == true || data == "OK" || data == "True") {
                         alert('Saved Successfully!');
                     }

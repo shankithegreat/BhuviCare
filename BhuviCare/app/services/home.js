@@ -71,7 +71,61 @@ define(['jquery', 'knockout'], function (jquery, ko) {
                     alert(ko.toJSON(x) + ko.toJSON(x) + ko.toJSON(x));
                 }
             });
-        },        
+        },
+
+        updatePhoto: function (data) {
+            jquery.support.cors = true;
+            return $.ajax({
+                url: serviceBase + 'update/updatephoto',
+                type: 'POST',
+                data: ko.toJSON(data),
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                dataType: 'json',
+                success: function (data) {
+
+                },
+                error: function (x, y, z) {
+                    alert(ko.toJSON(x) + ko.toJSON(x) + ko.toJSON(x));
+                }
+            });
+        },
+
+        updateVideo: function (data) {
+            jquery.support.cors = true;
+            return $.ajax({
+                url: serviceBase + 'update/updatevideo',
+                type: 'POST',
+                data: ko.toJSON(data),
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                dataType: 'json',
+                success: function (data) {
+
+                },
+                error: function (x, y, z) {
+                    alert(ko.toJSON(x) + ko.toJSON(x) + ko.toJSON(x));
+                }
+            });
+        },
+
+        getPhotos: function () {
+            jquery.support.cors = true;
+            return $.ajax({
+                url: serviceBase + 'home/photos',
+                type: 'GET',
+                dataType: 'json',
+                success: function (data) {
+                },
+                error: function (x, y, z) {
+                    alert(x + '\n' + y + '\n' + z);
+                }
+            });
+        },
     };
 
     return service;

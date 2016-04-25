@@ -12,7 +12,7 @@
             },
             attached: function () {
                 var self = this;
-                
+                $(".page-host").scrollTop(1);
             },
         };
 

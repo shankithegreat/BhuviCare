@@ -93,6 +93,62 @@ namespace BhuviCare
             return lstInfo;
         }
 
+        public List<List<PhotoDetails>> LoadPhotos()
+        {
+            List<List<PhotoDetails>> dictPhotoDetails = new List<List<PhotoDetails>>();
+            List<PhotoDetails> lstInfo = new List<PhotoDetails>();
+            using (DataSet ds = dataAccess.LoadPhotos())
+            {
+                if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                {
+                    string preEvent = string.Empty;
+                    foreach (DataRow dataRow in ds.Tables[0].Rows)
+                    {                        
+                        string currEvent = Helper.GetDbValue(dataRow["PhotoHeader"]);
+                        if (string.IsNullOrEmpty(preEvent))
+                        {                            
+                            lstInfo = new List<PhotoDetails>();
+                            PhotoDetails companyData = new PhotoDetails()
+                            {
+                                PhotoHeader = Helper.GetDbValue(dataRow["PhotoHeader"]),
+                                PhotoUrl = Helper.GetDbValue(dataRow["PhotoUrl"]),
+                                ThumbnailUrl = Helper.GetDbValue(dataRow["ThumbnailUrl"]),
+                            };
+                            lstInfo.Add(companyData);                            
+                            preEvent = currEvent;
+                            dictPhotoDetails.Add(lstInfo);
+                        }
+                        else if(preEvent.Equals(currEvent, StringComparison.OrdinalIgnoreCase))
+                        {
+                            PhotoDetails companyData = new PhotoDetails()
+                            {
+                                PhotoHeader = Helper.GetDbValue(dataRow["PhotoHeader"]),
+                                PhotoUrl = Helper.GetDbValue(dataRow["PhotoUrl"]),
+                                ThumbnailUrl = Helper.GetDbValue(dataRow["ThumbnailUrl"]),
+                            };
+                            lstInfo.Add(companyData);
+                            preEvent = currEvent;
+                        }
+                        else
+                        {
+                            lstInfo = new List<PhotoDetails>();
+                            PhotoDetails companyData = new PhotoDetails()
+                            {
+                                PhotoHeader = Helper.GetDbValue(dataRow["PhotoHeader"]),
+                                PhotoUrl = Helper.GetDbValue(dataRow["PhotoUrl"]),
+                                ThumbnailUrl = Helper.GetDbValue(dataRow["ThumbnailUrl"]),
+                            };
+                            preEvent = currEvent;
+                            lstInfo.Add(companyData);
+                            dictPhotoDetails.Add(lstInfo);
+                        }
+                    }
+                }
+            }
+
+            return dictPhotoDetails;
+        }
+
         public string UpdateLob(LineOfBusiness lineOfBusiness)
         {
             try
@@ -128,11 +184,28 @@ namespace BhuviCare
             }
             catch (Exception ex)
             {
-                throw ex;
+                throw;
             }
         }
-    }
 
+        public string UpdatePhoto(PhotoDetails photoDetails)
+        {
+            dataAccess.UpdatePhoto(photoDetails);
+            return "OK";
+        }
+
+        public string UpdateVideo(VideoDetails videoDetails)
+        {
+            dataAccess.UpdateVideo(videoDetails);
+            return "OK";
+        }
+
+        public string UpdateNews(News news)
+        {
+            dataAccess.UpdateNews(news);
+            return "OK";
+        }
+    }
 
     public static class Helper
     {

@@ -73,5 +73,53 @@ namespace BhuviCare.Controllers
                 return ex.Message;
             }
         }
+
+        [Route("updatephoto")]
+        [HttpPost]
+        [ActionName("updatephoto")]
+        public string UpdatePhoto(PhotoDetails photoDetails)
+        {
+            try
+            {
+                Business business = new Business();
+                return business.UpdatePhoto(photoDetails);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+
+        [Route("updatevideo")]
+        [HttpPost]
+        [ActionName("updatevideo")]
+        public string UpdateVideo(VideoDetails videoDetails)
+        {
+            try
+            {
+                Business business = new Business();
+                return business.UpdateVideo(videoDetails);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+
+        [Route("updatenews")]
+        [HttpPost]
+        [ActionName("updatenews")]
+        public string UpdateNews(News news)
+        {
+            try
+            {
+                Business business = new Business();
+                return business.UpdateNews(news);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
     }
 }

@@ -3,6 +3,7 @@
         pace.start();
         var vm = {
             activate: function () {
+
             },
             attached: function () {
                 var self = this;

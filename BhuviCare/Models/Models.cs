@@ -39,7 +39,26 @@ namespace BhuviCare.Models
         public int Id { get; set; }
         public string ImageUrl { get; set; }
         public string Header { get; set; }
-        public string Content{ get; set; }
+        public string Content { get; set; }
         public string PageTitle { get; set; }
+    }
+
+    public class VideoDetails
+    {
+        public string VideoHeader { get; set; }
+        public string VideoUrl { get; set; }
+    }
+
+    public class PhotoDetails
+    {
+        public string PhotoHeader { get; set; }
+        public string ThumbnailUrl { get; set; }
+        public string PhotoUrl { get; set; }
+    }
+
+    public class News
+    {
+        public string NewsHeader { get; set; }
+        public string NewsDetails { get; set; }
     }
 }

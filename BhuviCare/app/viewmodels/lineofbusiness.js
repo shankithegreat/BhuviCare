@@ -13,6 +13,7 @@
                     nav: true,
                     fade: 500
                 });
+                $(".page-host").scrollTop(1);
             },
         };
 

@@ -13,6 +13,7 @@
             },
             attached: function () {
                 var self = this;
+                $(".page-host").scrollTop(1);
                 $("#slides1").responsiveSlides({
                     auto: true,
                     pagination: true,
